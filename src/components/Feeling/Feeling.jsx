@@ -26,7 +26,7 @@ function Feeling () {
     return (
         <div>
             <h2>How are you feeling today?</h2>
-            <label htmlFor="feeling">Feeling?</label>
+            <label className="feeling" htmlFor="feeling">Feeling?</label>
             <br />
             <input 
                 type="number" 
