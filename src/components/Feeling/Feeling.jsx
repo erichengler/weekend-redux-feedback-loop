@@ -22,7 +22,6 @@ function Feeling () {
         }
     }
     
-
     return (
         <div>
             <h2>How are you feeling today?</h2>
