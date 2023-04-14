@@ -1,5 +1,5 @@
-input[type="number"] {
-    width: 80px;
+input[type="text"] {
+    width: 140px;
 }
 
 button {
@@ -7,5 +7,5 @@ button {
 }
 
 .comments {
-    margin-right: 210px;
+    margin-right: 213px;
 }
