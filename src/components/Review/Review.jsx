@@ -11,13 +11,15 @@ function Review () {
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store.support);
     const comments = useSelector(store => store.comments);
+    const flagged = useSelector(store => store.flagged);
 
     const sendToServer = () => {
         axios.post('/feedback', {
             feeling: feeling,
             understanding: understanding,
             support: support,
-            comments: comments
+            comments: comments,
+            flagged: flagged
         }).then(response => {
             history.push('/success');
         }).catch(error => {
@@ -33,6 +35,7 @@ function Review () {
             <p>Understanding: {understanding}</p>
             <p>Support: {support}</p>
             <p>Comments: {comments}</p>
+            <p>Flagged: {flagged.toString()}</p>
             <button className="reviewButton" onClick={sendToServer}>Submit</button>
         </div>
     )

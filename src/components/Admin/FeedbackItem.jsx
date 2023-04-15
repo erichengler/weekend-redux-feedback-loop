@@ -1,8 +1,12 @@
 import axios from 'axios';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
 
-function FeedbackItem({ feedback, fetchFeedbackList }) {
+function FeedbackItem({ feedback, feedbackList, fetchFeedbackList }) {
 
-    const deleteFeedback = (event) => {
+    const deleteFeedback = () => {
         if (window.confirm('Delete?')) {
             axios.delete(`/feedback/${feedback.id}`).then((response) => {
                 fetchFeedbackList();
@@ -13,18 +17,35 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
         }
     }
 
+    const flagFeedback = () => {
+
+    }
+
     return (
-        <>
-            <div key={feedback.id}>
-                <p>Feeling: {feedback.feeling}</p>
-                <p>Understanding: {feedback.understanding}</p>
-                <p>Support: {feedback.support}</p>
-                <p>Comments: {feedback.comments}</p>
-                <button className='deleteButton' onClick={(event) => deleteFeedback(event)}>Delete</button>
-                <br /><br />
-                <hr />
-            </div>
-        </>
+        <TableBody>
+            <TableRow key={feedback.id}>
+                <TableCell>{feedback.feeling}</TableCell>
+                <TableCell>{feedback.understanding}</TableCell>
+                <TableCell>{feedback.support}</TableCell>
+                <TableCell>{feedback.comments}</TableCell>
+                <TableCell>
+                    <Button
+                        variant="outlined"
+                        className='flagButton'
+                        onClick={(event) => flagFeedback(event)}>
+                        {feedback.flagged.toString()}
+                    </Button>
+                </TableCell>
+                <TableCell>
+                    <Button
+                        variant="outlined"
+                        className='deleteButton'
+                        onClick={(event) => deleteFeedback(event)}>
+                        Delete
+                    </Button>
+                </TableCell>
+            </TableRow>
+        </TableBody>
     )
 }
 

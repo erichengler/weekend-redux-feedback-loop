@@ -46,8 +46,17 @@ const comments = (state = '', action) => {
 }
 
 const feedbackList = (state = [], action) => {
-    if (action.type === 'SET_FEEDBACK_LIST') {
+    if ( action.type === 'SET_FEEDBACK_LIST' ) {
         return action.payload;
+    }
+    return state;
+}
+
+const flagged = (state = false, action) => {
+    if ( action.type === 'SET_FLAGGED' ) {
+        return action.payload;
+    } else if ( action.type === 'CLEAR_FORM' ) {
+        return false;
     }
     return state;
 }
@@ -61,6 +70,7 @@ const storeInstance = createStore(
             support,
             comments,
             feedbackList,
+            flagged,
         }
     ),
     applyMiddleware(logger)

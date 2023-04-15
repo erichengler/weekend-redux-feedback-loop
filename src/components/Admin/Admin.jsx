@@ -1,10 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import FeedbackItem from './FeedbackItem';
 import axios from 'axios';
 import './Admin.css';
+import FeedbackItem from './FeedbackItem';
+import Table from '@mui/material/Table';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
-function Admin () {
+
+function Admin() {
 
     const dispatch = useDispatch();
     const feedbackList = useSelector(store => store.feedbackList)
@@ -25,15 +31,30 @@ function Admin () {
     return (
         <>
             <h2>Feedback Results</h2>
-            {
-                feedbackList.map(feedback => (
-                    <FeedbackItem
-                        key={feedback.id}
-                        feedback={feedback}
-                        fetchFeedbackList={fetchFeedbackList}
-                    />
-                ))
-            }
+            <TableContainer>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Feeling</TableCell>
+                            <TableCell>Understanding</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell>Flagged</TableCell>
+                            <TableCell>Delete</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    {
+                        feedbackList.map(feedback => (
+                            <FeedbackItem
+                                key={feedback.id}
+                                feedback={feedback}
+                                feedbackList={feedbackList}
+                                fetchFeedbackList={fetchFeedbackList}
+                            />
+                        ))
+                    }
+                </Table>
+            </TableContainer>
         </>
     )
 }
