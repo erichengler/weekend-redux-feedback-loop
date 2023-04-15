@@ -3,10 +3,15 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
-function FeedbackItem({ feedback, feedbackList, fetchFeedbackList }) {
 
-    const deleteFeedback = () => {
+function FeedbackItem({ feedback, fetchFeedbackList }) {
+
+    const deleteFeedback = (event) => {
         if (window.confirm('Delete?')) {
             axios.delete(`/feedback/${feedback.id}`).then((response) => {
                 fetchFeedbackList();
@@ -17,18 +22,23 @@ function FeedbackItem({ feedback, feedbackList, fetchFeedbackList }) {
         }
     }
 
-    const flagFeedback = () => {
-
+    const flagFeedback = (event) => {
+        axios.put(`/feedback/${feedback.id}`).then((response) => {
+            fetchFeedbackList();
+        }).catch((error) => {
+            console.log(`Error in PUT ${error}`);
+            alert('Something went wrong');
+        })
     }
 
     return (
         <TableBody>
             <TableRow key={feedback.id}>
-                <TableCell>{feedback.feeling}</TableCell>
-                <TableCell>{feedback.understanding}</TableCell>
-                <TableCell>{feedback.support}</TableCell>
-                <TableCell>{feedback.comments}</TableCell>
-                <TableCell>
+                <TableCell align='center'>{feedback.feeling}</TableCell>
+                <TableCell align='center'>{feedback.understanding}</TableCell>
+                <TableCell align='center'>{feedback.support}</TableCell>
+                <TableCell align='center'>{feedback.comments}</TableCell>
+                <TableCell align='center'>
                     <Button
                         variant="outlined"
                         className='flagButton'
@@ -36,7 +46,7 @@ function FeedbackItem({ feedback, feedbackList, fetchFeedbackList }) {
                         {feedback.flagged.toString()}
                     </Button>
                 </TableCell>
-                <TableCell>
+                <TableCell align='center'>
                     <Button
                         variant="outlined"
                         className='deleteButton'

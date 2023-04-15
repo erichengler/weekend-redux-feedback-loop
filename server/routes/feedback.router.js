@@ -39,4 +39,16 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+// PUT request to change flagged from false to true
+router.put('/:id', (req, res) => {
+    console.log( 'In PUT request /feedback' );
+    let feedbackId = req.params.id;
+    let queryText = 'UPDATE "feedback" SET "flagged" = $1 WHERE "id" = $2;';
+    pool.query(queryText, [ 'True', feedbackId ]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error in PUT ${error}`);
+    })
+})
+
 module.exports = router;

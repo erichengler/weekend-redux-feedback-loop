@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 
+
 function Admin() {
 
     const dispatch = useDispatch();
@@ -30,17 +31,16 @@ function Admin() {
 
     return (
         <>
-            <h2>Feedback Results</h2>
             <TableContainer>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Feeling</TableCell>
-                            <TableCell>Understanding</TableCell>
-                            <TableCell>Support</TableCell>
-                            <TableCell>Comments</TableCell>
-                            <TableCell>Flagged</TableCell>
-                            <TableCell>Delete</TableCell>
+                            <TableCell align='center'>Feeling</TableCell>
+                            <TableCell align='center'>Understanding</TableCell>
+                            <TableCell align='center'>Support</TableCell>
+                            <TableCell align='center'>Comments</TableCell>
+                            <TableCell align='center'>Flagged</TableCell>
+                            <TableCell align='center'>Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     {
@@ -48,7 +48,6 @@ function Admin() {
                             <FeedbackItem
                                 key={feedback.id}
                                 feedback={feedback}
-                                feedbackList={feedbackList}
                                 fetchFeedbackList={fetchFeedbackList}
                             />
                         ))

@@ -35,7 +35,6 @@ function Review () {
             <p>Understanding: {understanding}</p>
             <p>Support: {support}</p>
             <p>Comments: {comments}</p>
-            <p>Flagged: {flagged.toString()}</p>
             <button className="reviewButton" onClick={sendToServer}>Submit</button>
         </div>
     )
