@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import './Feeling.css'
 
 function Feeling () {
@@ -15,7 +16,7 @@ function Feeling () {
     }
 
     const nextPage = () => {
-        if ( feelingNumber === 0 || feelingNumber === '' ) {
+        if ( feelingNumber < 1 || feelingNumber === '' || feelingNumber > 10 ) {
             alert('Please enter a number 1 - 10');
         } else {
             history.push('/understanding');
@@ -32,7 +33,7 @@ function Feeling () {
                 min="1" max="10" 
                 placeholder="1-10"
                 onChange={handleChange} />
-            <button onClick={nextPage}>Next</button>
+            <Button onClick={nextPage}>Next</Button>
         </div>
     )
 }

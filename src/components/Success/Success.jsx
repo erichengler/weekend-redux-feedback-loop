@@ -1,6 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import './Success.css';
+import Button from '@mui/material/Button';
 
 function Success () {
 
@@ -15,7 +16,11 @@ function Success () {
     return (
         <>
             <h2>Thank you for your feedback!</h2>
-            <button className="newFeedback" onClick={resetForm}>Leave New Feedback</button>
+            <Button 
+                variant="outlined"
+                className="newFeedback" 
+                onClick={resetForm}>Leave New Feedback
+            </Button>
         </>
     )
 }

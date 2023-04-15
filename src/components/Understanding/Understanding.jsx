@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import './Understanding.css'
 
 function Understanding () {
@@ -15,7 +16,7 @@ function Understanding () {
     }
 
     const nextPage = () => {
-        if ( understandingNumber === 0 || understandingNumber === '' ) {
+        if ( understandingNumber < 1 || understandingNumber === '' || understandingNumber > 10 ) {
             alert('Please enter a number 1 - 10');
         } else {
             history.push('/support');
@@ -32,7 +33,7 @@ function Understanding () {
                 min="1" max="10" 
                 placeholder="1-10"
                 onChange={handleChange} />
-            <button onClick={nextPage}>Next</button>
+            <Button onClick={nextPage}>Next</Button>
         </div>
     )
 }

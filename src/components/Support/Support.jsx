@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import './Support.css'
 
 function Support () {
@@ -15,7 +16,7 @@ function Support () {
     }
 
     const nextPage = () => {
-        if ( supportNumber === 0 || supportNumber === '' ) {
+        if ( supportNumber < 1 || supportNumber === '' || supportNumber > 10) {
             alert('Please enter a number 1 - 10');
         } else {
             history.push('/comments');
@@ -32,7 +33,7 @@ function Support () {
                 min="1" max="10" 
                 placeholder="1-10"
                 onChange={handleChange} />
-            <button onClick={nextPage}>Next</button>
+            <Button onClick={nextPage}>Next</Button>
         </div>
     )
 }

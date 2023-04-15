@@ -2,8 +2,9 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Review.css'
 import axios from 'axios';
+import Button from '@mui/material/Button';
 
-function Review () {
+function Review() {
 
     const history = useHistory();
 
@@ -28,15 +29,36 @@ function Review () {
         })
     }
 
+    // Go back functions
+    const backToFeeling = () => {
+        history.push('/')
+    }
+
+    const backToUnderstanding = () => {
+        history.push('/understanding')
+    }
+
+    const backToSupport = () => {
+        history.push('/support')
+    }
+
+    const backToComments = () => {
+        history.push('/comments')
+    }
+    // END of go back functions
+
+
     return (
-        <div>
+        <>
             <h2>Review</h2>
-            <p>Feeling: {feeling}</p>
-            <p>Understanding: {understanding}</p>
-            <p>Support: {support}</p>
-            <p>Comments: {comments}</p>
-            <button className="reviewButton" onClick={sendToServer}>Submit</button>
-        </div>
+            <br />
+            <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
+            <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
+            <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
+            <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
+            <br /><br />
+            <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
+        </>
     )
 }
 

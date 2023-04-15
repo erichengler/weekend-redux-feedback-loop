@@ -1,11 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import './Comments.css'
 
 function Comments () {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const comments = useSelector(store => store.comments)
 
     const handleChange = (event) => {
         const action = { type: "SET_COMMENTS", payload: event.target.value };
@@ -22,9 +24,10 @@ function Comments () {
             <label className="comments" htmlFor="comments">Comments</label>
             <br />
             <input 
+                defaultValue={comments}
                 type="text" 
                 onChange={handleChange} />
-            <button onClick={nextPage}>Next</button>
+            <Button onClick={nextPage}>Next</Button>
         </div>
     )
 }
