@@ -2,14 +2,15 @@ import axios from 'axios';
 
 function FeedbackItem({ feedback, fetchFeedbackList }) {
 
-    // TODO : FIX DELETE REQUEST!!
     const deleteFeedback = (event) => {
-        axios.delete(`/feedback/${feedback.id}`).then((response) => {
-            fetchFeedbackList();
-        }).catch((error) => {
-            console.log(`Error in deleteFeedback ${error}`);
-            alert('Something went wrong!');
-        })
+        if (window.confirm('Delete?')) {
+            axios.delete(`/feedback/${feedback.id}`).then((response) => {
+                fetchFeedbackList();
+            }).catch((error) => {
+                console.log(`Error in deleteFeedback ${error}`);
+                alert('Something went wrong!');
+            })
+        }
     }
 
     return (
