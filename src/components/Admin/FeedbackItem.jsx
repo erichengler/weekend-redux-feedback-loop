@@ -12,7 +12,7 @@ import '@fontsource/roboto/700.css';
 function FeedbackItem({ feedback, fetchFeedbackList }) {
 
     const deleteFeedback = (event) => {
-        if (window.confirm('Delete?')) {
+        if (window.confirm('Are you sure you want to delete this feedback?')) {
             axios.delete(`/feedback/${feedback.id}`).then((response) => {
                 fetchFeedbackList();
             }).catch((error) => {

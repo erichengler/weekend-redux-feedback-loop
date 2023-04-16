@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import './Feeling.css'
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
+import '../textfield.css'
 
 function Feeling () {
 
@@ -24,17 +27,20 @@ function Feeling () {
     }
     
     return (
-        <div>
-            <h2>How are you feeling today?</h2>
-            <label className="feeling" htmlFor="feeling">Feeling?</label>
-            <br />
-            <input 
-                type="number" 
-                min="1" max="10" 
-                placeholder="1-10"
-                onChange={handleChange} />
-            <Button onClick={nextPage}>Next</Button>
-        </div>
+        <Grid container justifyContent='center'>
+            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
+                <h2>Hey there! How are you feeling today?</h2>
+                    <br />
+                <label>Feeling?</label>
+                    <br />
+                <TextField
+                    type="number" 
+                    placeholder="1-10"
+                    onChange={handleChange} />
+                    <br />
+                <Button onClick={nextPage}>Next</Button>
+            </Card>
+        </Grid>
     )
 }
 

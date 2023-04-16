@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import './Understanding.css'
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
+import '../textfield.css'
 
 function Understanding () {
 
@@ -24,17 +27,20 @@ function Understanding () {
     }
 
     return (
-        <div>
-            <h2>How well are you understanding the content?</h2>
-            <label className="understanding" htmlFor="understanding">Understanding?</label>
-            <br />
-            <input 
-                type="number" 
-                min="1" max="10" 
-                placeholder="1-10"
-                onChange={handleChange} />
-            <Button onClick={nextPage}>Next</Button>
-        </div>
+        <Grid container justifyContent='center'>
+            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
+                <h2>How well are you understanding the content?</h2>
+                    <br />
+                <label>Understanding?</label>
+                    <br />
+                <TextField 
+                    type="number" 
+                    placeholder="1-10"
+                    onChange={handleChange} />
+                    <br />
+                <Button onClick={nextPage}>Next</Button>
+            </Card>
+        </Grid>
     )
 }
 

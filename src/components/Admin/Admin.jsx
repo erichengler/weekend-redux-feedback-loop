@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
-import './Admin.css';
 import FeedbackItem from './FeedbackItem';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';

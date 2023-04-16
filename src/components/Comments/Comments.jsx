@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import './Comments.css'
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 
 function Comments () {
 
@@ -19,16 +21,22 @@ function Comments () {
     }
 
     return (
-        <div>
-            <h2>Any comments you want to leave?</h2>
-            <label className="comments" htmlFor="comments">Comments</label>
-            <br />
-            <input 
-                defaultValue={comments}
-                type="text" 
-                onChange={handleChange} />
-            <Button onClick={nextPage}>Next</Button>
-        </div>
+        <Grid container justifyContent='center'>
+            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
+                <h2>Any comments you want to leave for us?</h2>
+                    <br />
+                <label>Comments</label>
+                    <br />
+                <TextField
+                    multiline
+                    rows={3}
+                    defaultValue={comments}
+                    type="text" 
+                    onChange={handleChange} />
+                    <br />
+                <Button onClick={nextPage}>Next</Button>
+            </Card>
+        </Grid>
     )
 }
 

@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './Review.css'
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 
 function Review() {
 
@@ -49,16 +50,19 @@ function Review() {
 
 
     return (
-        <>
-            <h2>Review</h2>
-            <br />
-            <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
-            <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
-            <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
-            <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
-            <br /><br />
-            <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
-        </>
+        <Grid container justifyContent='center'>
+            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
+                <h2>Review</h2>
+                    <br />
+                <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
+                <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
+                <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
+                <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
+                    <br />
+                <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
+                    <br /><br />
+            </Card>
+        </Grid>
     )
 }
 
