@@ -11,6 +11,7 @@ import '@fontsource/roboto/700.css';
 
 function FeedbackItem({ feedback, fetchFeedbackList }) {
 
+    // Delete request to delete a feedback entry after confirmation
     const deleteFeedback = (event) => {
         if (window.confirm('Are you sure you want to delete this feedback?')) {
             axios.delete(`/feedback/${feedback.id}`).then((response) => {
@@ -22,6 +23,7 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
         }
     }
 
+    // PUT request to change flagged from false to true
     const flagFeedback = (event) => {
         axios.put(`/feedback/${feedback.id}`).then((response) => {
             fetchFeedbackList();
@@ -34,11 +36,13 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
     return (
         <TableBody>
             <TableRow key={feedback.id}>
+                {/* Feedback Entry */}
                 <TableCell align='center'>{feedback.feeling}</TableCell>
                 <TableCell align='center'>{feedback.understanding}</TableCell>
                 <TableCell align='center'>{feedback.support}</TableCell>
                 <TableCell align='center'>{feedback.comments}</TableCell>
                 <TableCell align='center'>
+                    {/* Flag Button */}
                     <Button
                         variant="outlined"
                         className='flagButton'
@@ -47,6 +51,7 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
                     </Button>
                 </TableCell>
                 <TableCell align='center'>
+                    {/* Delete Button */}
                     <Button
                         variant="outlined"
                         className='deleteButton'

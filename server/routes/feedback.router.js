@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     })
 });
 
-// POST feedback to database
+// POST feedback entry to database
 router.post('/', (req, res) => {
     console.log('In POST request');
     let queryText = 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4);';
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     })
 });
 
-// DELETE feedback from database
+// DELETE feedback entry from database
 router.delete('/:id', (req, res) => {
     console.log('In DELETE request');
     let queryText = 'DELETE FROM "feedback" WHERE "id" = $1;';

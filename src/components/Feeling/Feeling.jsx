@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// MaterialUI imports
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -8,6 +9,7 @@ import '../textfield.css'
 
 function Feeling () {
 
+    // Hooks
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -18,6 +20,7 @@ function Feeling () {
         dispatch(action);
     }
 
+    // Next button brings user to '/understanding'
     const nextPage = () => {
         if ( feelingNumber < 1 || feelingNumber === '' || feelingNumber > 10 ) {
             alert('Please enter a number 1 - 10');

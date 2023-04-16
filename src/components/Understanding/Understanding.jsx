@@ -18,6 +18,7 @@ function Understanding () {
         dispatch(action);
     }
 
+    // Next button brings user to '/support'
     const nextPage = () => {
         if ( understandingNumber < 1 || understandingNumber === '' || understandingNumber > 10 ) {
             alert('Please enter a number 1 - 10');

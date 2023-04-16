@@ -1,20 +1,24 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+// MaterialUI Imports
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 
 function Review() {
 
+    // Hook
     const history = useHistory();
 
+    // Retrieving values from reducers
     const feeling = useSelector(store => store.feeling);
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store.support);
     const comments = useSelector(store => store.comments);
     const flagged = useSelector(store => store.flagged);
 
+    // POST request to send feedback entry to server
     const sendToServer = () => {
         axios.post('/feedback', {
             feeling: feeling,
@@ -23,6 +27,7 @@ function Review() {
             comments: comments,
             flagged: flagged
         }).then(response => {
+            // Next button brings user to '/success'
             history.push('/success');
         }).catch(error => {
             alert('Something went wrong!');
@@ -30,7 +35,7 @@ function Review() {
         })
     }
 
-    // Go back functions
+//  ---- Go back functions ----
     const backToFeeling = () => {
         history.push('/')
     }
@@ -46,7 +51,7 @@ function Review() {
     const backToComments = () => {
         history.push('/comments')
     }
-    // END of go back functions
+//  ---- End of go back functions ----
 
 
     return (

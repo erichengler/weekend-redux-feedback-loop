@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// MaterialUI Imports
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -8,6 +9,7 @@ import '../textfield.css'
 
 function Support () {
 
+    // Hooks
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -18,6 +20,7 @@ function Support () {
         dispatch(action);
     }
 
+    // Next button brings user to '/comments'
     const nextPage = () => {
         if ( supportNumber < 1 || supportNumber === '' || supportNumber > 10) {
             alert('Please enter a number 1 - 10');

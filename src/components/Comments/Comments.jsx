@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// MaterialUI Imports
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
@@ -7,6 +8,7 @@ import Grid from '@mui/material/Grid';
 
 function Comments () {
 
+    // Hooks
     const dispatch = useDispatch();
     const history = useHistory();
     const comments = useSelector(store => store.comments)
@@ -16,6 +18,7 @@ function Comments () {
         dispatch(action);
     }
 
+    // Next button brings user to '/review'
     const nextPage = () => {
         history.push('/review');
     }

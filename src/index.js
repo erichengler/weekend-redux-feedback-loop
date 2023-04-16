@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './components/App/App';
+import './index.css';
 
-// Imports for redux
+// Redux Imports
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
-// Reducers
+// ------------- Reducers -------------
 const feeling = (state = 0, action) => {
     if ( action.type === 'SET_FEELING' ) {
         return action.payload;
@@ -60,6 +60,7 @@ const flagged = (state = false, action) => {
     }
     return state;
 }
+// ------------- End of Reducers -------------
 
 // Store
 const storeInstance = createStore(

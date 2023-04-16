@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
+// MaterialUI imports
 import FeedbackItem from './FeedbackItem';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
@@ -10,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 
 function Admin() {
 
+    // Hooks
     const dispatch = useDispatch();
     const feedbackList = useSelector(store => store.feedbackList)
 
