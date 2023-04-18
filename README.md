@@ -31,3 +31,7 @@ The information stored in the database is displayed in a table at the route `/ad
 3. Redux
 4. MaterialUI
 5. PostgreSQL
+
+## Acknowledgement
+
+Thanks to Chris Black and Prime Digital Academy for providing me with the knowledge I needed to make this!
