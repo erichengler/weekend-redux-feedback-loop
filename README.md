@@ -47,19 +47,3 @@ Thanks to Chris Black and Prime Digital Academy for providing me with the knowle
 If you run into any issues or have suggestions, please email me at erichjohnengler@gmail.com
 
 Thanks for viewing!
-- Javascript
-- React
-- Redux
-- Axios
-- MaterialUI
-- PostgreSQL
-
-## Acknowledgement
-
-Thanks to Chris Black and Prime Digital Academy for providing me with the knowledge I needed to make this!
-
-## Support
-
-If you run into any issues or have suggestions, please email me at erichjohnengler@gmail.com
-
-Thanks for viewing!
