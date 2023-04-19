@@ -64,15 +64,24 @@ function Review() {
                 <Card sx={{
                     paddingTop: 4,
                     paddingBottom: 4,
-                    width: '650px'
+                    paddingLeft: 8,
+                    paddingRight: 8,
+                    maxWidth: '522px',
+                    minWidth: '300px'
                 }}>
                     <h2>Feedback Review</h2>
                     <br />
-                    <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
-                    <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
-                    <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
-                    <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
-                    <br />
+                    <p>Feeling: {feeling} <br />
+                        <Button onClick={backToFeeling}>Change</Button></p>
+
+                    <p>Understanding: {understanding} <br />
+                        <Button onClick={backToUnderstanding}>Change</Button></p>
+
+                    <p>Support: {support} <br />
+                        <Button onClick={backToSupport}>Change</Button></p>
+
+                    <p>Comments: <br /><br /> <i>{comments}</i> <br />
+                        <Button onClick={backToComments}>Change</Button></p> <br />
                     <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
                     <br /><br />
                 </Card>

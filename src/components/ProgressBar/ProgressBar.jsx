@@ -10,11 +10,11 @@ const steps = [
     'Review'
 ];
 
-function ProgressBar({ currentStep })  {
+function ProgressBar({ currentStep }) {
 
     return (
-        <Stepper 
-            sx={{ marginTop: '30px', marginBottom: '30px' }} 
+        <Stepper
+            sx={{ marginTop: '30px', marginBottom: '30px' }}
             activeStep={currentStep}
         >
             {

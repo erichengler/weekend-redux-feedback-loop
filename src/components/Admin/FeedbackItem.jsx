@@ -1,4 +1,7 @@
 import axios from 'axios';
+import FlagIcon from '@mui/icons-material/Flag';
+import OutlinedFlagTwoToneIcon from '@mui/icons-material/OutlinedFlagTwoTone';
+import DeleteIcon from '@mui/icons-material/Delete';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -33,6 +36,17 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
         })
     }
 
+    const flagStatus = () => {
+        if (feedback.flagged === true) {
+            return <FlagIcon />;
+        } else {
+            return <OutlinedFlagTwoToneIcon
+                onClick={(event) => flagFeedback(event)}
+                cursor='pointer'
+            />
+        }
+    }
+
     return (
         <TableBody>
             <TableRow key={feedback.id}>
@@ -40,24 +54,20 @@ function FeedbackItem({ feedback, fetchFeedbackList }) {
                 <TableCell align='center'>{feedback.feeling}</TableCell>
                 <TableCell align='center'>{feedback.understanding}</TableCell>
                 <TableCell align='center'>{feedback.support}</TableCell>
-                <TableCell align='center'>{feedback.comments}</TableCell>
+                <TableCell align='center' sx={{ maxWidth: '200px' }}>
+                    <i>{feedback.comments}</i></TableCell>
                 <TableCell align='center'>
-                    {/* Flag Button */}
-                    <Button
-                        variant="outlined"
-                        className='flagButton'
-                        onClick={(event) => flagFeedback(event)}>
-                        {feedback.flagged.toString()}
-                    </Button>
+                    {/* Flag Icon */}
+                    {
+                        flagStatus()
+                    }
                 </TableCell>
                 <TableCell align='center'>
                     {/* Delete Button */}
-                    <Button
-                        variant="outlined"
-                        className='deleteButton'
-                        onClick={(event) => deleteFeedback(event)}>
-                        Delete
-                    </Button>
+                    <DeleteIcon
+                        cursor='pointer'
+                        onClick={(event) => deleteFeedback(event)}
+                    />
                 </TableCell>
             </TableRow>
         </TableBody>

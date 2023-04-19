@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 // MaterialUI Imports
+import ProgressBar from "../ProgressBar/ProgressBar";
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 
-function Success () {
+function Success() {
 
     // Hooks
     const history = useHistory();
@@ -18,17 +19,27 @@ function Success () {
     }
 
     return (
-        <Grid container justifyContent='center'>
-            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
-            <h2>Thank you for your feedback!</h2>
-            <Button 
-                variant="outlined"
-                className="newFeedback" 
-                onClick={resetForm}>Leave New Feedback
-            </Button>
-                <br /><br />
-            </Card>
-        </Grid>
+        <>
+            <ProgressBar
+                currentStep={5}
+            />
+            <Grid container justifyContent='center'>
+                <Card sx={{
+                    paddingTop: 4,
+                    paddingBottom: 4,
+                    width: '650px'
+                }}>
+                    <h2>Thank you for giving us your feedback!</h2>
+                    <br />
+                    <Button
+                        variant="outlined"
+                        className="newFeedback"
+                        onClick={resetForm}>Leave New Feedback
+                    </Button>
+                    <br /><br />
+                </Card>
+            </Grid>
+        </>
     )
 }
 
