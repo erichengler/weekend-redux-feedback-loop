@@ -8,6 +8,7 @@ import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 import Success from '../Success/Success';
 import Admin from '../Admin/Admin';
+import Header from '../Header/Header'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Adding theme from MUI
@@ -28,9 +29,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className='App'>
         <Router>
-          <header className='App-header'>
-            <h1 className='App-title'>Feedback</h1>
-          </header>
+          <Header />
 
           <Route exact path="/">
             <Feeling />

@@ -14,7 +14,8 @@ function ProgressBar({ currentStep }) {
 
     return (
         <Stepper
-            sx={{ marginTop: '30px', marginBottom: '30px' }}
+            sx={{ marginTop: '30px', marginBottom: '30px',
+                marginLeft: '70px', marginRight: '70px' }}
             activeStep={currentStep}
         >
             {
