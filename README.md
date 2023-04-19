@@ -16,7 +16,7 @@ This project contains a 4-step feedback survey for the user to fill out. The sur
 
 ## Installation / Setup
 
-1. Clone down this repository. You will need node and npm installed globally on your machine.
+1. Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 2. Create a database with the name `prime_feedback`
 3. Create a table using the instructions in `data.sql`
 4. In your editor of choice, run `npm install` in your terminal 
