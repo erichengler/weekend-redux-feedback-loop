@@ -35,3 +35,9 @@ The information stored in the database is displayed in a table at the route `/ad
 ## Acknowledgement
 
 Thanks to Chris Black and Prime Digital Academy for providing me with the knowledge I needed to make this!
+
+## Support
+
+If you run into any issues or have suggestions, please email me at erichjohnengler@gmail.com
+
+Thanks for viewing!
