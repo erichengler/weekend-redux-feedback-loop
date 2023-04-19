@@ -10,7 +10,7 @@ The information stored in the database is displayed in a table at the route `/ad
 
 ## Preview
 
-![Preview 1](./public/images/preview1.png)
+![screenshot](./public/images/preview1.png)
 <br /><br />
 ![Preview 2](./public/images/preview2.png)
 <br /><br />
