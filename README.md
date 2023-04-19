@@ -8,7 +8,7 @@ This project contains a feedback survey for the user to fill out. The survey ask
 
 The information stored in the database is displayed in a table at the route `/admin`. Each feedback entry gets displayed along with a `Flag` and a `Delete` button. The flag button can be clicked to change flagged from false to true in the database for that entry. The delete button can be clicked to remove a feedback entry from the database and it will no longer be displayed in the table.
 
-## Screenshots
+## Preview
 
 ![Preview 1](./public/images/preview1.png)
 <br /><br />
