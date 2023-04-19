@@ -1,12 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// Material UI Imports
+import ProgressBar from '../ProgressBar/ProgressBar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import '../textfield.css'
 
-function Understanding () {
+function Understanding() {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -20,7 +22,7 @@ function Understanding () {
 
     // Next button brings user to '/support'
     const nextPage = () => {
-        if ( understandingNumber < 1 || understandingNumber === '' || understandingNumber > 10 ) {
+        if (understandingNumber < 1 || understandingNumber === '' || understandingNumber > 10) {
             alert('Please enter a number 1 - 10');
         } else {
             history.push('/support');
@@ -28,20 +30,29 @@ function Understanding () {
     }
 
     return (
-        <Grid container justifyContent='center'>
-            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
-                <h2>How well are you understanding the content?</h2>
+        <>
+            <ProgressBar
+                currentStep={1}
+            />
+            <Grid container justifyContent='center'>
+                <Card sx={{
+                    paddingTop: 4,
+                    paddingBottom: 4,
+                    width: '650px'
+                }}>
+                    <h2>How well are you understanding the content?</h2>
                     <br />
-                <label>Understanding?</label>
+                    <label>Understanding</label>
                     <br />
-                <TextField 
-                    type="number" 
-                    placeholder="1-10"
-                    onChange={handleChange} />
+                    <TextField
+                        type="number"
+                        placeholder="1-10"
+                        onChange={handleChange} />
                     <br />
-                <Button onClick={nextPage}>Next</Button>
-            </Card>
-        </Grid>
+                    <Button onClick={nextPage}>Next</Button>
+                </Card>
+            </Grid>
+        </>
     )
 }
 

@@ -1,13 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // MaterialUI Imports
+import ProgressBar from '../ProgressBar/ProgressBar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import '../textfield.css'
 
-function Support () {
+function Support() {
 
     // Hooks
     const history = useHistory();
@@ -22,7 +23,7 @@ function Support () {
 
     // Next button brings user to '/comments'
     const nextPage = () => {
-        if ( supportNumber < 1 || supportNumber === '' || supportNumber > 10) {
+        if (supportNumber < 1 || supportNumber === '' || supportNumber > 10) {
             alert('Please enter a number 1 - 10');
         } else {
             history.push('/comments');
@@ -30,20 +31,29 @@ function Support () {
     }
 
     return (
-        <Grid container justifyContent='center'>
-            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
-                <h2>How well are you being supported?</h2>
+        <>
+            <ProgressBar
+                currentStep={2}
+            />
+            <Grid container justifyContent='center'>
+                <Card sx={{
+                    paddingTop: 4,
+                    paddingBottom: 4,
+                    width: '650px'
+                }}>
+                    <h2>How well do you feel you are being supported?</h2>
                     <br />
-                <label>Support?</label>
+                    <label>Support</label>
                     <br />
-                <TextField
-                    type="number" 
-                    placeholder="1-10"
-                    onChange={handleChange} />
+                    <TextField
+                        type="number"
+                        placeholder="1-10"
+                        onChange={handleChange} />
                     <br />
-                <Button onClick={nextPage}>Next</Button>
-            </Card>
-        </Grid>
+                    <Button onClick={nextPage}>Next</Button>
+                </Card>
+            </Grid>
+        </>
     )
 }
 

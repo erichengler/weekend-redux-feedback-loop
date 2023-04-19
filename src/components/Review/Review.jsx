@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 // MaterialUI Imports
+import ProgressBar from '../ProgressBar/ProgressBar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
@@ -35,7 +36,7 @@ function Review() {
         })
     }
 
-//  ---- Go back functions ----
+    //  ---- Go back functions ----
     const backToFeeling = () => {
         history.push('/')
     }
@@ -51,23 +52,32 @@ function Review() {
     const backToComments = () => {
         history.push('/comments')
     }
-//  ---- End of go back functions ----
+    //  ---- End of go back functions ----
 
 
     return (
-        <Grid container justifyContent='center'>
-            <Card sx={{ padding: 2, minWidth: 350, maxWidth: 350 }}>
-                <h2>Review</h2>
+        <>
+            <ProgressBar
+                currentStep={4}
+            />
+            <Grid container justifyContent='center'>
+                <Card sx={{
+                    paddingTop: 4,
+                    paddingBottom: 4,
+                    width: '650px'
+                }}>
+                    <h2>Feedback Review</h2>
                     <br />
-                <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
-                <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
-                <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
-                <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
+                    <p>Feeling: {feeling} <br /> <Button onClick={backToFeeling}>Change</Button></p>
+                    <p>Understanding: {understanding} <br /> <Button onClick={backToUnderstanding}>Change</Button></p>
+                    <p>Support: {support} <br /> <Button onClick={backToSupport}>Change</Button></p>
+                    <p>Comments: {comments} <br /> <Button onClick={backToComments}>Change</Button></p>
                     <br />
-                <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
+                    <Button variant="outlined" className="reviewButton" onClick={sendToServer}>Submit</Button>
                     <br /><br />
-            </Card>
-        </Grid>
+                </Card>
+            </Grid>
+        </>
     )
 }
 
