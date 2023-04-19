@@ -2,7 +2,7 @@
 
 ## Description
 
-Duration: 1 Week
+Duration: Multiple days of work over a 2 week period
 
 This project contains a feedback survey for the user to fill out. The survey asks how the user is feeling, how well they are understanding the content, and how well they are being supported. Each of these 3 questions can be answered by inputting a number between 1 and 10 and clicking the next button to go to the next question. If a number is entered that is not between 1 and 10, the user will receive an alert and will not be able to proceed to the next question. After the first 3 questions, the user will be able to leave a comment and then review their answers before submitting them to a database by clicking the `Submit` button. Users can click any of the `change` buttons on the review page to go back to a previous step and change their answer. After submission, the user can click the `Leave New Feedback` button to be returned to the beginning of the survey.
 
